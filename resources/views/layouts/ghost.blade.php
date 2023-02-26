@@ -19,9 +19,7 @@
     <link rel="canonical" href="jiuuni.uz">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
-    {{-- @vite('resources/css/app.css') --}}
-    <link rel="stylesheet" type="text/css"
-        href="/build/assets/app-5005f49e.css">
+    @vite('resources/css/app.css')
     <!-- Title -->
     <title>@yield('title')</title>
 </head>
@@ -30,9 +28,7 @@
 
     @yield('content')
 
-    {{-- @vite('resources/js/app.js') --}}
-    <script type="text/javascript" src="{{ asset('build/assets/preline-709aecb3.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/assets/app-ddcbec12.js ') }}"></script>
+    @vite('resources/js/app.js')
 </body>
 
 </html>

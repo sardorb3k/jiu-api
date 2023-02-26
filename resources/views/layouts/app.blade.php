@@ -19,13 +19,11 @@
     <link rel="canonical" href="jiuuni.uz">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
-    {{-- @vite('resources/css/app.css') --}}
+    @vite('resources/css/app.css')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="/build/assets/app-5005f49e.css">
-    <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+        <script type="text/javascript"  src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
 
     <!-- Title -->
     <title>@yield('title')</title>
@@ -61,10 +59,8 @@
         }
     </script>
     <x-footer />
-    {{-- @vite('resources/js/app.js') --}}
-    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/assets/preline-709aecb3.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('build/assets/app-ddcbec12.js ') }}"></script>
+    @vite('resources/js/app.js')
+    <script type="text/javascript"  src="{{ asset('js/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('js/jquery.inputmask.min.js') }}"></script>
 
