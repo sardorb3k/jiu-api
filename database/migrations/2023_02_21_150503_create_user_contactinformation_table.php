@@ -16,7 +16,8 @@ return new class extends Migration
             $table->ulid('user_id');
             $table->ulid('country_id');
             $table->ulid('state_id');
-            $table->ulid('citie_id');
+            $table->ulid('district_id');
+            $table->ulid('region_id');
             $table->timestamps();
         });
     }

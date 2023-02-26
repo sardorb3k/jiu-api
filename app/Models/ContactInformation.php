@@ -14,6 +14,7 @@ class ContactInformation extends Model
         'user_id',
         'country_id',
         'state_id',
-        'citie_id',
+        'district_id',
+        'region_id',
     ];
 }

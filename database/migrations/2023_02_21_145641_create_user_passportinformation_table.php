@@ -14,13 +14,14 @@ return new class extends Migration
         Schema::create('user_passportinformation', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->ulid('user_id');
+            $table->enum('status', ['passport', 'certificate']);
             $table->string('passportnumber');
             $table->string('passportseries');
-            $table->string('pinfl');
-            $table->string('placeissue');
-            $table->string('givenby');
-            $table->date('dateissue');
-            $table->date('dateexpiration');
+            $table->string('pinfl')->nullable();
+            $table->string('placeissue')->nullable();
+            $table->string('givenby')->nullable();
+            $table->date('dateissue')->nullable();
+            $table->date('dateexpiration')->nullable();
             $table->timestamps();
         });
     }

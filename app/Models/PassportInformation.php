@@ -12,12 +12,14 @@ class PassportInformation extends Model
     protected $table = 'user_passportinformation';
     protected $fillable = [
         'user_id',
+        'status',
         'passportnumber',
         'passportseries',
         'pinfl',
         'placeissue',
         'givenby',
         'dateissue',
+        'dateexpiration',
         'dateexpiration',
     ];
 }
