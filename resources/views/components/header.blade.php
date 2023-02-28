@@ -29,8 +29,7 @@
                 <div class="overflow-hidden overflow-y-auto max-h-[75vh] scrollbar-y">
                     <div
                         class="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
-                        <a class="font-medium text-blue-600 py-3 md:py-6 dark:text-blue-500" href="#"
-                            aria-current="page">Home</a>
+
                         @permission('contact-student')
                             <a class="font-medium text-gray-500 hover:text-gray-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500"
                                 href="#">
@@ -73,12 +72,6 @@
                                 Departments
                             </a>
                         @endpermission
-
-                        <a class="font-medium text-gray-500 hover:text-gray-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500"
-                            href="#">
-                            Join us <span
-                                class="py-0.5 px-1.5 rounded-full text-xs font-medium bg-blue-50 border border-blue-200 text-blue-600">4</span>
-                        </a>
 
                         <div
                             class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] py-3 md:py-6">
