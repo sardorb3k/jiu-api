@@ -14,10 +14,10 @@
                         <div class="grow ml-5">
                             <h3
                                 class="{{ $action == 'info' ? 'group-hover:text-white text-white text-white dark:group-hover:text-white-400 dark:text-white-200' : 'group-hover:text-blue-600 text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200' }} font-semibold ">
-                                Education Information
+                                {{ __('deportment.education_title') }}
                             </h3>
                             <p class="{{ $action == 'info' ? 'text-sm text-white' : 'text-sm text-gray-500' }}">
-                                choose the course you can apply
+                                {{ __('deportment.education_desc') }}
                             </p>
                         </div>
                     </div>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex flex-auto items-center justify-center h-screen">
         <div class="text-center">
-            <img src="/logo.png" style="width:200px;height:92px;margin:0 auto;">
+            @include('components/logo-auth')
             <div class="mt-6	animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-blue-600 rounded-full"
                 role="status" aria-label="loading">
                 <span class="sr-only">Loading...</span>

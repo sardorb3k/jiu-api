@@ -17,4 +17,19 @@ class ContactInformation extends Model
         'district_id',
         'region_id',
     ];
+
+    public function district()
+    {
+        return $this->belongsTo(Districts::class, 'state_id', 'id');
+    }
+
+    public function village()
+    {
+        return $this->belongsTo(Villages::class, 'district_id', 'id');
+    }
+
+    public function region()
+    {
+        return $this->belongsTo(Regions::class, 'region_id', 'id');
+    }
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" className="h-full">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" className="h-full dark">
 
 <head>
     <!-- Required meta tags -->
@@ -19,18 +19,21 @@
     <link rel="canonical" href="jiuuni.uz">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
-    <link rel="stylesheet" type="text/css"
-        href="/build/assets/app-b642b72d.css">
-    <script src="/build/assets/app-746c20c7.js"></script>
+    @vite('resources/css/app.css')
+
+    {{-- <link rel="stylesheet" type="text/css" href="/build/assets/app-b642b72d.css">
+    <script src="/build/assets/app-746c20c7.js"></script> --}}
     <!-- Title -->
     <title>@yield('title')</title>
 </head>
 
-<body class="bg-gray-100 items-center">
+<body class="items-center bg-white-100  dark:bg-slate-900 ">
 
     @yield('content')
-    <script src="/build/assets/app-746c20c7.js"></script>
-    <script src="/build/assets/preline-709aecb3.js"></script>
+    @vite('resources/js/app.js')
+
+    {{-- <script src="/build/assets/app-746c20c7.js"></script>
+    <script src="/build/assets/preline-709aecb3.js"></script> --}}
 
 </body>
 

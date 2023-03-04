@@ -46,10 +46,6 @@ class ApplyController extends Controller
         $passportinfo = PassportInformation::where('user_id', $id)->first();
         return view('apply.update', compact('user', 'contactinfo', 'passportinfo'));
     }
-    // logout
-    public function logout(Request $request)
-    {
-    }
 
     // apply_document_view
     public function apply_document_view(Request $request)
@@ -68,13 +64,7 @@ class ApplyController extends Controller
                 'gender' => 'required',
                 'datebirth' => 'required',
                 'phoneNumber' => 'required',
-                'passportnumber' => 'required',
-                'passportseries' => 'required',
-                'pinfl' => 'required',
-                'placeissue' => 'required',
-                'givenby' => 'required',
-                'dateissue' => 'required',
-                'dateexpiration' => 'required',
+                'passport' => 'required',
             ]
         );
         $id = Auth::user()->id;
@@ -82,18 +72,11 @@ class ApplyController extends Controller
         $user = User::findOrFail($id);
 
         if ($validateUser->fails()) {
-            return redirect()->route('apply.personal-view')->with('error', $validateUser->errors());
+            return redirect()->route('profile.info')->with('error', $validateUser->errors());
         }
 
-        $passportinformation = PassportInformation::create([
-            'user_id' => $id,
-            'passportnumber' => $request->passportnumber,
-            'passportseries' => $request->passportseries,
-            'pinfl' => $request->pinfl,
-            'placeissue' => $request->placeissue,
-            'givenby' => $request->givenby,
-            'dateissue' => $request->dateissue,
-            'dateexpiration' => $request->dateexpiration,
+        $passportinformation = PassportInformation::where('user_id', $id)->update([
+            'passport' => $request->passport,
         ]);
 
         $user->update([
@@ -104,7 +87,7 @@ class ApplyController extends Controller
             'birthdate' => $request->datebirth,
             'phone' => str_replace(["(", ")", "-", " ", "+"], "", $request->phoneNumber),
         ]);
-        return redirect()->route('apply')->with('success', 'Personal Information Created Successfully');
+        return redirect()->route('profile.info')->with('success', 'Successfully');
     }
 
     public function apply_view()
@@ -186,13 +169,7 @@ class ApplyController extends Controller
             $validateUser = Validator::make(
                 $request->all(),
                 [
-                    'passportnumber' => 'required',
-                    'passportseries' => 'required',
-                    'pinfl' => 'required',
-                    'placeissue' => 'required',
-                    'givenby' => 'required',
-                    'dateissue' => 'required',
-                    'dateexpiration' => 'required',
+                    'passport' => 'required',
                     'file' => 'required',
                 ]
             );
@@ -210,15 +187,15 @@ class ApplyController extends Controller
                 $image->move($destinationPath, $name);
             }
 
+            $upload = Upload::create([
+                'user_id' => $id,
+                'type' => 'passport',
+                'filename' => $name,
+            ]);
+
             $passportinformation = PassportInformation::create([
                 'user_id' => $id,
-                'passportnumber' => $request->passportnumber,
-                'passportseries' => $request->passportseries,
-                'pinfl' => $request->pinfl,
-                'placeissue' => $request->placeissue,
-                'givenby' => $request->givenby,
-                'dateissue' => $request->dateissue,
-                'dateexpiration' => $request->dateexpiration,
+                'passport' => $request->passport,
                 'status' => 'passport',
             ]);
 

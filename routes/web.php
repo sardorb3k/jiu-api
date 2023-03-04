@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/apply', [App\Http\Controllers\ApplyController::class, 'apply_view'])->name('apply');
@@ -50,6 +51,7 @@ Route::get('/Applicant/ApproveToExam', [App\Http\Controllers\ApplicantController
 
 Route::get('/students', [App\Http\Controllers\StudentsController::class, 'index'])->name('students');
 Route::get('/students/{id}', [App\Http\Controllers\StudentsController::class, 'show'])->name('students.show');
+Route::post('/students/{id}', [App\Http\Controllers\StudentsController::class, 'action_status'])->name('students.status');
 
 
 Route::get('/Departments', [App\Http\Controllers\DepartmentController::class, 'index'])->name('departments');

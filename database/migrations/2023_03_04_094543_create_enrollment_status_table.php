@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_passportinformation', function (Blueprint $table) {
+        Schema::create('enrollment_status', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->ulid('user_id');
-            $table->string('passport');
+            $table->enum('status', ['1', '2', '3']);
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_passportinformation');
+        Schema::dropIfExists('enrollment_status');
     }
 };

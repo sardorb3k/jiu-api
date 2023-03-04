@@ -1,4 +1,5 @@
 @extends('layouts.ghost')
+@section('title', __('auth.login_title'))
 
 @section('content')
     <div class="flex h-full items-center py-16">
@@ -6,16 +7,16 @@
             <div class="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
 
                 <div class="p-4 sm:p-7">
-                    <img src="/logo.png" style="width:200px;height:92px;margin:0 auto;">
+                    @include('components/logo-auth')
                     <hr style="margin-top: 15px" />
                     <div class="text-center">
                         <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">
-                            Sign in
+                            {{ __('auth.login_title') }}
                         </h1>
                         <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                            Don't have an account yet? &nbsp;
-                            <a href="/register" class="text-blue-600 decoration-2 hover:underline font-medium">
-                                Sign up here
+                            {{ __('auth.login_donthave') }} &nbsp;
+                            <a href="/register" class="text-blue-600 decoration-2 hover:underline font-medium dark:text-white">
+                                {{ __('auth.login_signin') }}
                             </a>
                         </p>
                     </div>
@@ -27,7 +28,7 @@
                             <div class="grid gap-y-4">
                                 <div>
                                     <label for="email" class="block text-sm mb-2 dark:text-white">
-                                        Email
+                                        {{ __('auth.login_email') }}
                                     </label>
                                     <div class="relative">
                                         <input type="text" id="email" name="email"
@@ -53,14 +54,14 @@
                                 <div>
                                     <div class="flex justify-between items-center">
                                         <label for="password" class="block text-sm mb-2 dark:text-white">
-                                            Password
+                                            {{ __('auth.login_password') }}
                                         </label>
-                                        @if (Route::has('password.request'))
+                                        {{-- @if (Route::has('password.request'))
                                             <a href="{{ route('password.request') }}"
-                                                class="text-sm text-blue-600 decoration-2 hover:underline font-medium">
+                                                class="text-sm text-blue-600 decoration-2 hover:underline font-medium dark:text-white">
                                                 Forgot password?
                                             </a>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                     <div class="relative">
                                         <input type="password" id="password" name="password"
@@ -87,7 +88,7 @@
                                     <div class="flex">
                                         <input type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}
-                                            class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" />
+                                            class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" />
                                     </div>
                                     <div class="ml-3">
                                         <label for="remember" class="text-sm dark:text-white">
@@ -97,7 +98,7 @@
                                 </div>
                                 <button type="submit"
                                     class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800">
-                                    Sign in
+                                    {{ __('auth.login_submit') }}
                                 </button>
                             </div>
                         </form>

@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PassportInformation extends Model
+class EnrollmentStatus extends Model
 {
     use HasFactory, HasUlids;
-    protected $table = 'user_passportinformation';
+    protected $table = 'enrollment_status';
     protected $fillable = [
         'user_id',
-        'passport',
+        'status',
+        'description',
     ];
 }

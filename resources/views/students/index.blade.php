@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Permission')
+@section('title', __('student.title'))
 @section('content')
 
 
@@ -17,7 +17,7 @@
                                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
                                 <div>
                                     <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                                        Permissions
+                                        {{ __('student.title') }}
                                     </h2>
                                 </div>
                             </div>
@@ -31,14 +31,14 @@
                                             class="px-6 py-3 text-left border-l border-gray-200 dark:border-gray-700">
                                             <span
                                                 class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                Name
+                                                {{ __('student.name') }}
                                             </span>
                                         </th>
 
                                         <th scope="col" class="px-6 py-3 text-left">
                                             <span
                                                 class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                Phone
+                                                {{ __('student.phone') }}
                                             </span>
                                         </th>
 
@@ -74,9 +74,8 @@
                                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
                                 <div>
                                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                                        <span
-                                            class="font-semibold text-gray-800 dark:text-gray-200"></span>{{ count($data) }}
-                                        results
+                                        {{ __('student.total') }} <span
+                                        class="font-semibold text-gray-800 dark:text-gray-200">{{ count($data) }}</span>
                                     </p>
                                 </div>
                             </div>

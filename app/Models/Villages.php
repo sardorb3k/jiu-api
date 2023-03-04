@@ -9,4 +9,8 @@ class Villages extends Model
 {
     use HasFactory;
     protected $table = 'villages';
+    protected $fillable = [
+        'id',
+        'name_uz',
+    ];
 }
