@@ -4,17 +4,17 @@
     "isDynamicEntry": true
   },
   "resources/js/app.css": {
-    "file": "assets/app-b642b72d.css",
+    "file": "assets/app-b73a2d49.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/app-b642b72d.css"
+      "assets/app-b73a2d49.css"
     ],
     "dynamicImports": [
       "_preline-709aecb3.js"
     ],
-    "file": "assets/app-746c20c7.js",
+    "file": "assets/app-2dec4663.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }
