@@ -22,22 +22,26 @@ class StudentsController extends Controller
     }
     public function show($id)
     {
-        $data = User::where('id', $id)->first();
-        $passport = PassportInformation::where('user_id', $id)->first();
-        $upload = Upload::where('user_id',$id)->first();
-        $contact = DB::table('user_contactinformation as u')
-        ->leftJoin('districts as d', 'u.state_id', '=', 'd.id')
-        ->leftJoin('villages as v', 'u.district_id', '=', 'v.id')
-        ->leftJoin('regions as r', 'u.region_id', '=', 'r.id')
-        ->select('d.name_uz as district', 'r.name_uz as region', 'v.name_uz as village', 'u.*')
-        ->where('u.user_id', '=', $id)
-        ->first();
-        $enrollment = DB::table('enrollments as e')
-        ->leftJoin('departments as d', 'e.department_id', '=', 'd.id')
-        ->select('d.name', 'e.*')
-        ->where('e.user_id', '=', $id)
-        ->first();
-        return view('students.show', compact('data','passport','contact', 'upload', 'enrollment'));
+        try {
+            $data = User::where('id', $id)->first() ?? [];
+            $passport = PassportInformation::where('user_id', $id)->first() ?? [];
+            $upload = Upload::where('user_id',$id)->first() ?? [];
+            $contact = DB::table('user_contactinformation as u')
+            ->leftJoin('districts as d', 'u.state_id', '=', 'd.id')
+            ->leftJoin('villages as v', 'u.district_id', '=', 'v.id')
+            ->leftJoin('regions as r', 'u.region_id', '=', 'r.id')
+            ->select('d.name_uz as district', 'r.name_uz as region', 'v.name_uz as village', 'u.*')
+            ->where('u.user_id', '=', $id)
+            ->first() ?? [];
+            $enrollment = DB::table('enrollments as e')
+            ->leftJoin('departments as d', 'e.department_id', '=', 'd.id')
+            ->select('d.name', 'e.*')
+            ->where('e.user_id', '=', $id)
+            ->first() ?? [];
+            return view('students.show', compact('data','passport','contact', 'upload', 'enrollment'));
+        } catch (\Throwable $th) {
+            return redirect()->route('students.show',$id)->with('error', $th);
+        }
     }
 
     public function action_status(Request $request)
