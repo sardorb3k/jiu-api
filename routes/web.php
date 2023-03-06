@@ -35,6 +35,7 @@ Route::get('/Applicant/UploadedDocuments', [App\Http\Controllers\ApplyController
 Route::post('/Applicant/ApplicantInfoEdit', [App\Http\Controllers\ApplyController::class, 'logout'])->name('profile.logout');
 
 Route::get('/roles', [App\Http\Controllers\PermissionController::class, 'role_view'])->name('role');
+Route::post('/roles', [App\Http\Controllers\PermissionController::class, 'role_create'])->name('role.create');
 Route::get('/roles/{id}', [App\Http\Controllers\PermissionController::class, 'role_show'])->name('role.show');
 Route::post('/roles/{id}', [App\Http\Controllers\PermissionController::class, 'role_permission_add'])->name('role.permission');
 

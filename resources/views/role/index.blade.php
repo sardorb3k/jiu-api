@@ -11,7 +11,7 @@
             </div>
 
             <div class="mt-12">
-                <form method="POST" action="{{ route('permission.create') }}">
+                <form method="POST" action="{{ route('role.create') }}">
                     @csrf
                     <div class="grid gap-4 lg:gap-12">
                         <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 lg:gap-6">

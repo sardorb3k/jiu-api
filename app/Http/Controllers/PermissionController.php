@@ -21,12 +21,16 @@ class PermissionController extends Controller
     }
     public function role_show($id)
     {
-        $data = Role::findOrFail($id);
-        $permission = Permission::get();
-        $role_permission = RoleHasPermission::leftJoin('permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
-            ->select('permissions.name', 'permissions.key', 'role_has_permissions.*')
-            ->get();
-        return view('role.show', compact('data', 'permission', 'role_permission'));
+        try {
+            $data = Role::findOrFail($id);
+            $permission = Permission::get();
+            $role_permission = RoleHasPermission::where('role_id',$id)->leftJoin('permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                ->select('permissions.name', 'permissions.key', 'role_has_permissions.*')
+                ->get();
+            return view('role.show', compact('data', 'permission', 'role_permission'));
+        } catch (\Throwable $th) {
+            return redirect()->route('role.show',$request->role_id)->with('success', $th);
+        }
     }
     public function role_permission_add(Request $request)
     {
