@@ -22,8 +22,7 @@
                                 <label for="region" class="block text-sm text-gray-700 font-medium dark:text-white">
                                     {{ __('apply.contact_region') }} <span class="text-red-800">*</span>
                                 </label>
-                                <select name="region" id="region" required
-                                    class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                                <select name="region" id="region" required class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
                                     <option value="">{{ __('apply.contact_region_select') }}</option>
                                     @foreach ($region as $item)
                                         <option value="{{ $item->id }}">{{ $item->name_uz }}</option>
@@ -35,8 +34,7 @@
                                 <label for="state" class="block text-sm text-gray-700 font-medium dark:text-white">
                                     {{ __('apply.contact_state') }} <span class="text-red-800">*</span>
                                 </label>
-                                <select name="state" id="state" required
-                                    class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                                <select name="state" id="state" required class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
                                     <option value="">{{ __('apply.contact_state_select') }}</option>
                                 </select>
                             </div>
@@ -45,8 +43,7 @@
                                 <label for="district" class="block text-sm text-gray-700 font-medium dark:text-white">
                                     {{ __('apply.contact_district') }} <span class="text-red-800">*</span>
                                 </label>
-                                <select name="district" id="district" required
-                                    class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                                <select name="district" id="district" required class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
                                     <option value="">{{ __('apply.contact_district_select') }}</option>
                                 </select>
                             </div>
@@ -98,6 +95,9 @@
                             });
                         });
                     </script>
+                    <div class="bg-blue-500 text-sm text-white rounded-md p-4 mt-5" role="alert">
+                        <span class="font-bold">{{ __('apply.personal_status') }}</span>
+                    </div>
                     <div class="mt-6 grid">
                         <button type="submit"
                             class="inline-flex justify-center items-center gap-x-3 text-center bg-blue-600 hover:bg-blue-700 border border-transparent text-sm lg:text-base text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800">

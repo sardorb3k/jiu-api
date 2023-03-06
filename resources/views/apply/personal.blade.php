@@ -98,6 +98,7 @@
                   type="date"
                   name="datebirth"
                   id="datebirth"
+                  required
                   class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                 />
               </div>
@@ -117,6 +118,7 @@
                     name="phoneNumber"
                     class="py-3 px-4 pl-20 block w-full border-gray-200 border-solid border shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:border-gray-700"
                     placeholder="Telefon raqamingiz"
+                    required
                   />
                   <div class="absolute inset-y-0 left-0 flex items-center text-gray-500 pl-px dark:border-gray-700">
                     <label
@@ -140,6 +142,9 @@
             </div>
           </div>
 
+          <div class="bg-blue-500 text-sm text-white rounded-md p-4 mt-5" role="alert">
+            <span class="font-bold">{{ __('apply.personal_status') }}</span>
+          </div>
           <div class="mt-6 grid">
             <button
               type="submit"

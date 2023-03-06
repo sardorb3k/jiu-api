@@ -15,6 +15,7 @@ return [
     'passport_file' => 'File',
     'passport_file_label' => 'Choose file',
     'passport_next' => 'Keyingisi',
+    'passport_status' => 'Ma\'lumotlaringiz to\'g\'ri ekanligini tekshiring',
 
     'personal_title' => 'Shaxsiy ma\'lumot',
     'personal_firstname' => 'Ism',
@@ -28,6 +29,7 @@ return [
     'personal_phone' => 'Telefon raqami',
     'personal_country' => 'Mamlakat',
     'personal_next' => 'Keyingisi',
+    'personal_status' => 'Ma\'lumotlaringiz to\'g\'ri ekanligini tekshiring',
 
     'personalupdate_submit' => 'Saqlash',
 

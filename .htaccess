@@ -1,24 +1,9 @@
-<IfModule mod_rewrite.c>
-Options +FollowSymLinks
-RewriteEngine On
-# Force SSL
-# RewriteCond %{HTTPS} !=on
-RewriteRule ^ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-RewriteCond %{REQUEST_URI} !^/public/
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ /public/$1
-#RewriteRule ^ index.php [L]
-RewriteRule ^(/)?$ public/index.php [L]
-CGIPassAuth on
-</IfModule>
-<Files .env>
-    Order allow,deny
-    Deny from all
-</Files>
 # <IfModule mod_rewrite.c>
 # Options +FollowSymLinks
 # RewriteEngine On
+# # Force SSL
+# # RewriteCond %{HTTPS} !=on
+# RewriteRule ^ http://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # RewriteCond %{REQUEST_URI} !^/public/
 # RewriteCond %{REQUEST_FILENAME} !-d
 # RewriteCond %{REQUEST_FILENAME} !-f
@@ -27,3 +12,18 @@ CGIPassAuth on
 # RewriteRule ^(/)?$ public/index.php [L]
 # CGIPassAuth on
 # </IfModule>
+# <Files .env>
+#     Order allow,deny
+#     Deny from all
+# </Files>
+<IfModule mod_rewrite.c>
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /public/$1
+#RewriteRule ^ index.php [L]
+RewriteRule ^(/)?$ public/index.php [L]
+CGIPassAuth on
+</IfModule>

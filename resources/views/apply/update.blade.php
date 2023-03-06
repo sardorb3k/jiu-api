@@ -104,6 +104,17 @@
                                         required />
                                 </div>
                             </div>
+                            <div>
+                                <label for="file"
+                                    class="block text-sm text-gray-700 font-medium dark:text-white">{{ __('apply.passport_file') }}</label>
+                                <label for="file" class="sr-only">{{ __('apply.passport_file_label') }}</label>
+                                <input type="file" name="file" id="file" accept="image/* , application/pdf"
+                                    class="block w-full border border-gray-200 shadow-sm rounded-md text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400
+                                      file:bg-transparent file:border-0
+                                      file:bg-gray-100 file:mr-4
+                                      file:py-3 file:px-4
+                                      dark:file:bg-gray-700 dark:file:text-gray-400">
+                            </div>
                         </div>
 
                         <div class="mt-6 grid">

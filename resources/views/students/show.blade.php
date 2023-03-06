@@ -109,7 +109,7 @@
             <!-- Col -->
         </div>
         <img src="{{ url('uploads/passport/' . $upload->filename ?? '*') }}" alt="Passport" id="ex1"
-            class="w-28 mt-3">
+            class="w-28 mt-3" data-action="zoom">
 
         <h1 class="text-sm dark:text-neutral-50 mt-5">{{ __('student.show_contactinformation') }}</h1>
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use App\Models\Enrollments;
+use App\Models\User;
+use App\Models\PassportInformation;
 use Illuminate\Http\Request;
 use App\Models\EnrollmentStatus;
 use Illuminate\Support\Facades\Auth;
@@ -20,8 +22,10 @@ class ApplicantController extends Controller
         $data = Department::get();
         $id = Auth::user()->id;
         $enrollment = Enrollments::where('user_id',$id)->first();
+        $user = User::findOrFail($id);
+        $passportinfo = PassportInformation::where('user_id', $id)->first();
         $enrollmentstatus = EnrollmentStatus::where('user_id',$id)->first();
-        return view('applicant.details', compact('data','enrollment','enrollmentstatus'));
+        return view('applicant.details', compact('data','enrollment','enrollmentstatus','user', 'passportinfo'));
     }
     public function Details_save(Request $request)
     {
