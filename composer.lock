@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00fd04548017a4c825f8b2b2d5b79d89",
+    "content-hash": "84c8c7777ae0025205b4ffb2cea91bbe",
     "packages": [
         {
             "name": "brick/math",
@@ -1770,6 +1770,42 @@
                 }
             ],
             "time": "2022-04-17T13:12:02+00:00"
+        },
+        {
+            "name": "micilini/video-stream",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/micilini/video-stream.git",
+                "reference": "a3418a2412621dae1a4e06f57bae4f2f47074662"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/micilini/video-stream/zipball/a3418a2412621dae1a4e06f57bae4f2f47074662",
+                "reference": "a3418a2412621dae1a4e06f57bae4f2f47074662",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Micilini\\VideoStream\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Micilini"
+                }
+            ],
+            "description": "Video Stream with PHP",
+            "support": {
+                "issues": "https://github.com/micilini/video-stream/issues",
+                "source": "https://github.com/micilini/video-stream/tree/1.0.0"
+            },
+            "time": "2022-11-16T16:00:35+00:00"
         },
         {
             "name": "monolog/monolog",

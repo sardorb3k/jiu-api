@@ -44,9 +44,8 @@ class StudentsController extends Controller
         }
     }
 
-    public function action_status(Request $request)
+    public function action_status(Request $request, $id)
     {
-        $id = Auth::user()->id;
         try {
             EnrollmentStatus::create([
                 'user_id' => $id,
