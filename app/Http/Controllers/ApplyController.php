@@ -75,6 +75,21 @@ class ApplyController extends Controller
             return redirect()->route('profile.info')->with('error', $validateUser->errors());
         }
 
+
+            // image upload to public/images folder and store image name to database students table
+            if ($request->hasFile('file')) {
+                $image = $request->file('file');
+                $name = time() . '.' . $image->getClientOriginalExtension();
+                $destinationPath = public_path('/uploads/passport');
+                $image->move($destinationPath, $name);
+            $upload = Upload::create([
+                'user_id' => $id,
+                'type' => 'passport',
+                'filename' => $name,
+            ]);
+            }
+
+
         $passportinformation = PassportInformation::where('user_id', $id)->update([
             'passport' => $request->passport,
         ]);
