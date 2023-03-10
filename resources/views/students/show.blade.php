@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $data->firstname . ' ' . $data->lastname)
+@section('title', $data->firstname ?? 'Student' . ' ' . $data->lastname)
 @section('content')
 
     <!-- Invoice -->
@@ -101,14 +101,14 @@
                             {{ __('student.show_passport') }}:
                         </dt>
                         <dd class="font-medium text-gray-800 dark:text-gray-200">
-                            {{ $passport->passport }}
+                            {{ $passport->passport ?? '' }}
                         </dd>
                     </dl>
                 </div>
             </div>
             <!-- Col -->
         </div>
-        <img src="{{ url('uploads/passport/' . $upload->filename ?? '*') }}" alt="Passport" id="ex1"
+        <img src="/uploads/passport/{{ $upload->filename ?? '*' }}" alt="Passport" id="ex1"
             class="w-28 mt-3" data-action="zoom">
 
         <h1 class="text-sm dark:text-neutral-50 mt-5">{{ __('student.show_contactinformation') }}</h1>
@@ -123,7 +123,7 @@
                             {{ __('student.show_contactinformation_region') }}:
                         </dt>
                         <dd class="font-medium text-gray-800 dark:text-gray-200">
-                            {{ $contact->region }}
+                            {{ $contact->region ?? '' }}
                         </dd>
                     </dl>
                     <dl class="grid sm:flex gap-x-3 text-sm">
@@ -131,7 +131,7 @@
                             {{ __('student.show_contactinformation_district') }}:
                         </dt>
                         <dd class="font-medium text-gray-800 dark:text-gray-200">
-                            {{ $contact->district }}
+                            {{ $contact->district ?? '' }}
                         </dd>
                     </dl>
                     <dl class="grid sm:flex gap-x-3 text-sm">
@@ -139,7 +139,7 @@
                             {{ __('student.show_contactinformation_vilage') }}:
                         </dt>
                         <dd class="font-medium text-gray-800 dark:text-gray-200">
-                            {{ $contact->village }}
+                            {{ $contact->village ?? '' }}
                         </dd>
                     </dl>
                 </div>
@@ -203,7 +203,7 @@
     <script>
         $(document).ready(function() {
             $('#ex1').zoom({
-                url: '{{ url('uploads/passport/' . $upload->filename ?? '') }}'
+                url: '/uploads/passport/{{  $upload->filename ?? '' }}'
             });
         });
     </script>
