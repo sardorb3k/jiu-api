@@ -14,6 +14,11 @@ use Auth;
 
 class StudentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $arr = RoleToUser::where('role_id', '01gt108afrfakxnnme47k81d2p')->pluck('user_id')->toArray();

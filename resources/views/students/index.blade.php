@@ -53,7 +53,7 @@
                                                 <div class="px-6 py-2">
                                                     <span class="font-semibold text-sm text-gray-800 dark:text-gray-200">
                                                         <a href="{{ route('students.show', $item->id) }}">
-                                                            {{ $item->firstname ?? 'Student' }} {{ $item->lastname  ?? 'Studentov' }}</a></span>
+                                                            {{ $item->firstname ?? '****' }} {{ $item->lastname  ?? '****' }}</a></span>
                                                 </div>
                                             </td>
                                             <td class="h-px w-auto whitespace-nowrap">

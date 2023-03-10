@@ -22,6 +22,11 @@ use App\Models\Villages;
 
 class ApplyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     // permissions
     public function permissions(Request $request)
     {
@@ -30,11 +35,6 @@ class ApplyController extends Controller
             'permission_id' => $request->key,
         ]);
         return redirect()->route('permission.create')->with('success', 'permissions Created Successfully');
-    }
-
-    public function __construct()
-    {
-        $this->middleware('auth');
     }
 
     public function apply_update_view()
