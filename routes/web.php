@@ -45,7 +45,7 @@ Route::post('/permissions', [App\Http\Controllers\PermissionController::class, '
 Route::post('/permissions/{id}', [App\Http\Controllers\PermissionController::class, 'delete'])->name('permission.delete')->middleware(['role:permission-navbar']);
 
 // Applicant
-Route::get('/Applicant/Details', [App\Http\Controllers\ApplicantController::class, 'Details'])->name('applicant.details')->middleware(['role:applicant-details']);
+Route::get('/Applicant/Details', [App\Http\Controllers\ApplicantController::class, 'Details'])->name('applicant.details');
 Route::post('/Applicant/Details', [App\Http\Controllers\ApplicantController::class, 'Details_save'])->name('applicant.details_save')->middleware(['role:applicant-details']);
 Route::get('/Applicant/UploadedDocuments', [App\Http\Controllers\ApplicantController::class, 'UploadedDocuments'])->name('applicant.uploadeddocuments');
 Route::get('/Applicant/Examinations', [App\Http\Controllers\ApplicantController::class, 'Examinations'])->name('applicant.examinations');
