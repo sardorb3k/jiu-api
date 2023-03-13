@@ -29,7 +29,7 @@ Route::get('/apply/contact', [App\Http\Controllers\ApplyController::class, 'cont
 Route::post('/apply/contact', [App\Http\Controllers\ApplyController::class, 'contact_information'])->name('apply.contactinformation')->middleware(['role:contact-student']);
 Route::get('/apply/getRegion/{id}', [App\Http\Controllers\ApplyController::class, 'getRegion'])->name('apply.getRegion')->middleware(['role:getRegion']);
 Route::get('/apply/getDistricts/{id}', [App\Http\Controllers\ApplyController::class, 'getDistricts'])->name('apply.getDistricts')->middleware(['role:getRegion']);
-Route::post('/apply/update', [App\Http\Controllers\ApplyController::class, 'apply_update'])->name('apply.update')->middleware(['role:students']);
+Route::post('/apply/update', [App\Http\Controllers\ApplyController::class, 'apply_update'])->name('apply.update')->middleware(['role:profile-post']);
 Route::get('/Applicant/ApplicantInfoEdit', [App\Http\Controllers\ApplyController::class, 'apply_update_view'])->name('profile.info');
 Route::get('/Applicant/UploadedDocuments', [App\Http\Controllers\ApplyController::class, 'apply_document_view'])->name('profile.upload');
 // Route::get('/Applicant/ApproveToExam', [App\Http\Controllers\ApplyController::class, 'apply_approve_view'])->name('profile');

@@ -21,8 +21,8 @@
     <link rel="icon" type="image/png" href="<?php echo e(asset('favicon.ico')); ?>">
     
 
-    <link rel="stylesheet" type="text/css" href="/build/assets/app-28bce905.css">
-    <script src="/build/assets/app-03c6c85b.js"></script>
+    <link rel="stylesheet" type="text/css" href="/build/assets/app-7e3a603b.css">
+    <script src="/build/assets/app-a841390a.js"></script>
     <!-- Title -->
     <title><?php echo $__env->yieldContent('title'); ?></title>
 </head>
@@ -32,7 +32,7 @@
     <?php echo $__env->yieldContent('content'); ?>
     
 
-    <script src="/build/assets/app-03c6c85b.js"></script>
+    <script src="/build/assets/app-a841390a.js"></script>
     <script src="/build/assets/preline-709aecb3.js"></script>
 
 </body>
