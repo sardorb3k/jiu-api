@@ -47,7 +47,11 @@
                                     <select name="deportment" id="deportment" required {{ $enrollment ? 'disabled': '' }}
                                         class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
                                         @foreach ($data as $item)
-                                            <option value="{{ $item->id }}" {{ $enrollment->department_id=null == $item->id ? 'selected': '' }}>{{ $item->name }}</option>
+                                            <option value="{{ $item->id }}"
+                                                @if ($enrollment)
+                                                {{ $enrollment->department_id == $item->id ? 'selected': '' }}
+                                                @endif
+                                                >{{ $item->name }}</option>
                                         @endforeach
                                     </select>
 
