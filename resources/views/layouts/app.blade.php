@@ -27,7 +27,7 @@
     <script type="text/javascript" src="{{ asset('js/jquery.zoom.min.js') }}"></script>
 
     <link rel="stylesheet" type="text/css"
-            href="/build/assets/app-28bce905.css">
+            href="/build/assets/app-7e3a603b.css">
     <!-- Title -->
     <title>@yield('title')</title>
 </head>
@@ -69,8 +69,8 @@
     <script type="text/javascript" src="{{ asset('js/jquery.zoom.min.js') }}"></script>
     <script src="{{ asset('js/jquery.inputmask.min.js') }}"></script>
     <script src="{{ asset('js/zoom.js') }}"></script>
-    <script src="/build/assets/app-03c6c85b.js"></script>
-    <script src="/build/assets/preline-709aecb3.js"></script>
+    <script src="/build/assets/app-a841390a.js"></script>
+    <script src="/build/assets/preline-a841390a.js"></script>
 
 </body>
 

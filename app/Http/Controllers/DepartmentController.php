@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\Examdays;
+use App\Models\Qualification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +30,7 @@ class DepartmentController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
             ]);
-            return redirect()->route('departments')->with('success', 'Description Created Successfully');
+            return redirect()->route('departments')->with('success', 'Department Created Successfully');
         } catch (\Throwable $th) {
             return redirect()->route('departments')->with('error', $th);
         }
@@ -41,6 +43,35 @@ class DepartmentController extends Controller
             return redirect()->route('departments')->with('success', 'Deleted');
         } catch (\Throwable $th) {
             return redirect()->route('departments')->with('error', $th);
+        }
+    }
+
+    // Examday Controller
+    public function examday_view()
+    {
+        $data = Examdays::get();
+        return view('examday.index', compact('data'));
+    }
+    public function examday_create(Request $request)
+    {
+        $id = Auth::user()->id;
+        try {
+            Examdays::create([
+                'name' => $request->name,
+                'date' => $request->date,
+            ]);
+            return redirect()->route('examday')->with('success', 'Exam day Created Successfully');
+        } catch (\Throwable $th) {
+            return redirect()->route('examday')->with('error', $th);
+        }
+    }
+    public function examday_delete(Request $request)
+    {
+        try {
+            Examdays::where('id', $request->id)->delete();
+            return redirect()->route('examday')->with('success', 'Deleted');
+        } catch (\Throwable $th) {
+            return redirect()->route('examday')->with('error', $th);
         }
     }
 }

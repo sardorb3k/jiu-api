@@ -1,7 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Permission')
+@section('title', 'Exam day')
 @section('content')
-
 
     <div class="max-w-[85rem] mx-auto">
         <div id="hs-vertically-centered-modal"
@@ -27,7 +26,7 @@
                             </svg>
                         </button>
                     </div>
-                    <form method="POST" action="{{ route('permission.create') }}">
+                    <form method="POST" action="{{ route('examday.create') }}">
                         <div class="p-4 overflow-y-auto">
                             @csrf
                             <div class="grid gap-4 lg:gap-6">
@@ -41,13 +40,12 @@
                                             class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                             required />
                                     </div>
-
                                     <div>
-                                        <label for="key"
+                                        <label for="name"
                                             class="block text-sm text-gray-700 font-medium dark:text-white">
-                                            key <span class="text-red-800">*</span>
+                                            Date <span class="text-red-800">*</span>
                                         </label>
-                                        <input type="text" name="key" id="key"
+                                        <input type="date" name="date" id="Date"
                                             class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
                                             required />
                                     </div>
@@ -82,7 +80,7 @@
                                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
                                 <div>
                                     <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                                        Permissions
+                                        Exam days
                                     </h2>
                                 </div>
 
@@ -115,11 +113,11 @@
                                                 Name
                                             </span>
                                         </th>
-
-                                        <th scope="col" class="px-6 py-3 text-left">
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left border-l border-gray-200 dark:border-gray-700">
                                             <span
                                                 class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                                                Key
+                                                Date
                                             </span>
                                         </th>
 
@@ -145,19 +143,18 @@
                                             <td class="h-px w-auto whitespace-nowrap">
                                                 <div class="px-6 py-2">
                                                     <span
-                                                        class="text-sm text-gray-800 dark:text-gray-200">{{ $item->key }}</span>
+                                                        class="font-semibold text-sm text-gray-800 dark:text-gray-200">{{ $item->date }}</span>
                                                 </div>
                                             </td>
                                             <td class="h-px w-auto whitespace-nowrap">
                                                 <div class="px-6 py-2">
-                                                    <form action="{{ route('permission.delete', $item->id) }}"
+                                                    <form action="{{ route('examday.delete') }}"
                                                         method="POST">
                                                         @csrf
-                                                        @method('PUT')
+                                                        @method('DELETE')
                                                         <input type="hidden" name="id" value="{{ $item->id }}">
                                                         <button type="submit"
-                                                            class="inline-flex justify-center items-center text-center  border border-transparent text-sm lg:text-base text-block font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition dark:focus:ring-offset-gray-800 dark:text-white"
-                                                            onclick="archiveFunction(this)">
+                                                            class="inline-flex justify-center items-center text-center  border border-transparent text-sm lg:text-base text-block font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition dark:focus:ring-offset-gray-800 dark:text-white" onclick="archiveFunction(this)">
                                                             <em class="icon ni ni-archive"></em><span>Delete</span>
                                                         </button>
                                                     </form>
@@ -175,9 +172,7 @@
                                 class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-t border-gray-200 dark:border-gray-700">
                                 <div>
                                     <p class="text-sm text-gray-600 dark:text-gray-400">
-                                        <span
-                                            class="font-semibold text-gray-800 dark:text-gray-200"></span>{{ count($data) }}
-                                        results
+                                        <span class="font-semibold text-gray-800 dark:text-gray-200"></span>{{ count($data) }} results
                                     </p>
                                 </div>
                             </div>
@@ -190,4 +185,4 @@
         </div>
         <!-- End Table Section -->
     </div>
-@endsection
+    @endsection

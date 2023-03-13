@@ -47,7 +47,9 @@ Route::post('/permissions/{id}', [App\Http\Controllers\PermissionController::cla
 // Applicant
 Route::get('/Applicant/Details', [App\Http\Controllers\ApplicantController::class, 'Details'])->name('applicant.details');
 Route::post('/Applicant/Details', [App\Http\Controllers\ApplicantController::class, 'Details_save'])->name('applicant.details_save')->middleware(['role:applicant-details']);
-Route::get('/Applicant/UploadedDocuments', [App\Http\Controllers\ApplicantController::class, 'UploadedDocuments'])->name('applicant.uploadeddocuments');
+Route::post('/Applicant/Examinations', [App\Http\Controllers\ApplicantController::class, 'exam_save'])->name('applicant.exam_save')->middleware(['role:applicant-details']);
+Route::get('/Applicant/Checkstatus', [App\Http\Controllers\ApplicantController::class, 'checkstatus'])->name('applicant.checkstatus');
+Route::post('/Applicant/Checkstatus', [App\Http\Controllers\ApplicantController::class, 'apply_update'])->name('applicant.infoupdate');
 Route::get('/Applicant/Examinations', [App\Http\Controllers\ApplicantController::class, 'Examinations'])->name('applicant.examinations');
 Route::get('/Applicant/ApproveToExam', [App\Http\Controllers\ApplicantController::class, 'ApproveToExam'])->name('applicant.approvetoexam');
 
@@ -56,8 +58,15 @@ Route::get('/students/{id}', [App\Http\Controllers\StudentsController::class, 's
 Route::post('/students/{id}', [App\Http\Controllers\StudentsController::class, 'action_status'])->name('students.status')->middleware(['role:students']);
 
 
-Route::get('/Departments', [App\Http\Controllers\DepartmentController::class, 'index'])->name('departments')->middleware(['role:departments-navbar']);
-Route::post('/Departments', [App\Http\Controllers\DepartmentController::class, 'create'])->name('departments.create')->middleware(['role:departments-navbar']);
-Route::delete('/Departments', [App\Http\Controllers\DepartmentController::class, 'delete'])->name('departments.delete')->middleware(['role:departments-navbar']);
+// departments
+Route::get('/departments', [App\Http\Controllers\DepartmentController::class, 'index'])->name('departments')->middleware(['role:departments-navbar']);
+Route::post('/departments', [App\Http\Controllers\DepartmentController::class, 'create'])->name('departments.create')->middleware(['role:departments-navbar']);
+Route::delete('/departments', [App\Http\Controllers\DepartmentController::class, 'delete'])->name('departments.delete')->middleware(['role:departments-navbar']);
 
-//departments
+// examday
+
+Route::get('/examday', [App\Http\Controllers\DepartmentController::class, 'examday_view'])->name('examday')->middleware(['role:examday-navbar']);
+Route::post('/examday', [App\Http\Controllers\DepartmentController::class, 'examday_create'])->name('examday.create')->middleware(['role:examday-navbar']);
+Route::delete('/examday', [App\Http\Controllers\DepartmentController::class, 'examday_delete'])->name('examday.delete')->middleware(['role:examday-navbar']);
+
+// end

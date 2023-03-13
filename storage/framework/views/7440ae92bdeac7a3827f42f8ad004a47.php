@@ -1,6 +1,5 @@
-@extends('layouts.app')
-@section('title', 'Roles')
-@section('content')
+<?php $__env->startSection('title', 'Roles'); ?>
+<?php $__env->startSection('content'); ?>
 
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="max-w-xl mx-auto">
@@ -11,8 +10,8 @@
             </div>
 
             <div class="mt-12">
-                <form method="POST" action="{{ route('role.create') }}">
-                    @csrf
+                <form method="POST" action="<?php echo e(route('role.create')); ?>">
+                    <?php echo csrf_field(); ?>
                     <div class="grid gap-4 lg:gap-12">
                         <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 lg:gap-6">
                             <div>
@@ -101,24 +100,25 @@
 
                                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
 
-                                    @foreach ($data as $item)
+                                    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
                                             <td class="h-px w-auto whitespace-nowrap">
                                                 <div class="px-6 py-2">
                                                     <span
                                                         class="font-semibold text-sm text-gray-800 dark:text-gray-200">
-                                                       <a href="{{  route('role.show', $item->id) }}">
-                                                        {{ $item->name }}
+                                                       <a href="<?php echo e(route('role.show', $item->id)); ?>">
+                                                        <?php echo e($item->name); ?>
+
                                                     </a>
                                                     </span>
                                                 </div>
                                             </td>
                                             <td class="h-px w-auto whitespace-nowrap">
                                                 <div class="px-6 py-2">
-                                                    <form action="{{ route('permission.delete', $item->id) }}"
+                                                    <form action="<?php echo e(route('permission.delete', $item->id)); ?>"
                                                         method="POST">
-                                                        @csrf
-                                                        @method('PUT')
+                                                        <?php echo csrf_field(); ?>
+                                                        <?php echo method_field('PUT'); ?>
                                                         <input id="archive_reason" type="hidden" name="archive_reason"
                                                             value="">
                                                         <a onclick="archiveTeacher(this)" href="" class="dark:text-white">
@@ -128,7 +128,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                 </tbody>
                             </table>
@@ -151,4 +151,6 @@
             <!-- End Card -->
         </div>
         <!-- End Table Section -->
-    @endsection
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\OSPanel\domains\jiu-api.loc\resources\views/role/index.blade.php ENDPATH**/ ?>

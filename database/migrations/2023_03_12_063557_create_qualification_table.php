@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('enrollments', function (Blueprint $table) {
+        Schema::create('qualification', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->ulid('user_id');
-            $table->ulid('department_id');
-            $table->boolean('qualification');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('enrollments');
+        Schema::dropIfExists('qualification');
     }
 };

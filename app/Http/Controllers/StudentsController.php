@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactInformation;
+use App\Models\EnrollmentExamday;
 use App\Models\PassportInformation;
 use App\Models\EnrollmentStatus;
 use App\Models\RoleToUser;
@@ -42,8 +43,15 @@ class StudentsController extends Controller
             ->leftJoin('departments as d', 'e.department_id', '=', 'd.id')
             ->select('d.name', 'e.*')
             ->where('e.user_id', '=', $id)
+            ->orderBy('created_at', 'DESC')
             ->first() ?? [];
-            return view('students.show', compact('data','passport','contact', 'upload', 'enrollment'));
+            $examday = DB::table('enrollment_examday as e')
+            ->leftJoin('examdays as d', 'e.day_id', '=', 'd.id')
+            ->select('d.date', 'e.*')
+            ->where('e.user_id', '=', $id)
+            ->first() ?? [];
+            $enrollmentstatus = EnrollmentStatus::where('user_id', $id)->orderBy('created_at', 'DESC')->first();
+            return view('students.show', compact('data','passport','contact', 'upload', 'enrollment', 'examday', 'enrollmentstatus'));
         } catch (\Throwable $th) {
             return redirect()->route('students.show',$id)->with('error', $th);
         }

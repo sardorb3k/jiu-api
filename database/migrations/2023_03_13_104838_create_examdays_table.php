@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('enrollments', function (Blueprint $table) {
+        Schema::create('examdays', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->ulid('user_id');
-            $table->ulid('department_id');
-            $table->boolean('qualification');
+            $table->string('name');
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('enrollments');
+        Schema::dropIfExists('examdays');
     }
 };

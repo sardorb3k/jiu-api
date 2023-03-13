@@ -338,7 +338,7 @@ class ApplyController extends Controller
                 $data = States::where('country_id', $request->id)->get();
             }
             if ($request->data == "state") {
-                $data = Cities::where('state_id', $request->id)->get();
+                $data = Villages::where('state_id', $request->id)->get();
             }
 
             return response()->json([

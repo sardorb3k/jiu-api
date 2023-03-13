@@ -1,6 +1,5 @@
-@extends('layouts.app')
-@section('title', 'Permission')
-@section('content')
+<?php $__env->startSection('title', 'Permission'); ?>
+<?php $__env->startSection('content'); ?>
 
 
     <div class="max-w-[85rem] mx-auto">
@@ -27,9 +26,9 @@
                             </svg>
                         </button>
                     </div>
-                    <form method="POST" action="{{ route('permission.create') }}">
+                    <form method="POST" action="<?php echo e(route('permission.create')); ?>">
                         <div class="p-4 overflow-y-auto">
-                            @csrf
+                            <?php echo csrf_field(); ?>
                             <div class="grid gap-4 lg:gap-6">
                                 <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 lg:gap-6">
                                     <div>
@@ -134,27 +133,27 @@
 
                                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
 
-                                    @foreach ($data as $item)
+                                    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
                                             <td class="h-px w-auto whitespace-nowrap">
                                                 <div class="px-6 py-2">
                                                     <span
-                                                        class="font-semibold text-sm text-gray-800 dark:text-gray-200">{{ $item->name }}</span>
+                                                        class="font-semibold text-sm text-gray-800 dark:text-gray-200"><?php echo e($item->name); ?></span>
                                                 </div>
                                             </td>
                                             <td class="h-px w-auto whitespace-nowrap">
                                                 <div class="px-6 py-2">
                                                     <span
-                                                        class="text-sm text-gray-800 dark:text-gray-200">{{ $item->key }}</span>
+                                                        class="text-sm text-gray-800 dark:text-gray-200"><?php echo e($item->key); ?></span>
                                                 </div>
                                             </td>
                                             <td class="h-px w-auto whitespace-nowrap">
                                                 <div class="px-6 py-2">
-                                                    <form action="{{ route('permission.delete', $item->id) }}"
+                                                    <form action="<?php echo e(route('permission.delete', $item->id)); ?>"
                                                         method="POST">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <input type="hidden" name="id" value="{{ $item->id }}">
+                                                        <?php echo csrf_field(); ?>
+                                                        <?php echo method_field('PUT'); ?>
+                                                        <input type="hidden" name="id" value="<?php echo e($item->id); ?>">
                                                         <button type="submit"
                                                             class="inline-flex justify-center items-center text-center  border border-transparent text-sm lg:text-base text-block font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition dark:focus:ring-offset-gray-800 dark:text-white"
                                                             onclick="archiveFunction(this)">
@@ -164,7 +163,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                 </tbody>
                             </table>
@@ -176,7 +175,8 @@
                                 <div>
                                     <p class="text-sm text-gray-600 dark:text-gray-400">
                                         <span
-                                            class="font-semibold text-gray-800 dark:text-gray-200"></span>{{ count($data) }}
+                                            class="font-semibold text-gray-800 dark:text-gray-200"></span><?php echo e(count($data)); ?>
+
                                         results
                                     </p>
                                 </div>
@@ -190,4 +190,6 @@
         </div>
         <!-- End Table Section -->
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\OSPanel\domains\jiu-api.loc\resources\views/permission/index.blade.php ENDPATH**/ ?>

@@ -1,6 +1,5 @@
-@extends('layouts.app')
-@section('title', 'Roles')
-@section('content')
+<?php $__env->startSection('title', 'Roles'); ?>
+<?php $__env->startSection('content'); ?>
 
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="max-w-xl mx-auto">
@@ -11,17 +10,21 @@
             </div>
 
             <div class="mt-12">
-                <form method="POST" action="{{ route('role.create') }}">
-                    @csrf
+                <form method="POST" action="<?php echo e(route('role.permission', $data->id)); ?>">
+                    <?php echo csrf_field(); ?>
                     <div class="grid gap-4 lg:gap-12">
                         <div class="grid grid-cols-1 sm:grid-cols-1 gap-4 lg:gap-6">
                             <div>
                                 <label for="name" class="block text-sm text-gray-700 font-medium dark:text-white">
                                     Name <span class="text-red-800">*</span>
                                 </label>
-                                <input type="text" name="name" id="name"
-                                    class="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400"
-                                    required />
+                                <select name="permission_id" class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+
+                                    <?php $__currentLoopData = $permission; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                  </select>
+                                  <input type="hidden" name="role_id" value="<?php echo e($data->id); ?>">
                             </div>
 
                         </div>
@@ -101,34 +104,30 @@
 
                                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
 
-                                    @foreach ($data as $item)
+                                    <?php $__currentLoopData = $role_permission; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
                                             <td class="h-px w-auto whitespace-nowrap">
                                                 <div class="px-6 py-2">
                                                     <span
-                                                        class="font-semibold text-sm text-gray-800 dark:text-gray-200">
-                                                       <a href="{{  route('role.show', $item->id) }}">
-                                                        {{ $item->name }}
-                                                    </a>
-                                                    </span>
+                                                        class="font-semibold text-sm text-gray-800 dark:text-gray-200"><?php echo e($item->name); ?></span>
                                                 </div>
                                             </td>
                                             <td class="h-px w-auto whitespace-nowrap">
                                                 <div class="px-6 py-2">
-                                                    <form action="{{ route('permission.delete', $item->id) }}"
+                                                    <form action="<?php echo e(route('permission.delete', $item->id)); ?>"
                                                         method="POST">
-                                                        @csrf
-                                                        @method('PUT')
+                                                        <?php echo csrf_field(); ?>
+                                                        <?php echo method_field('PUT'); ?>
                                                         <input id="archive_reason" type="hidden" name="archive_reason"
                                                             value="">
-                                                        <a onclick="archiveTeacher(this)" href="" class="dark:text-white">
-                                                            <em class="icon ni ni-archive "></em><span>Delete</span>
+                                                        <a onclick="archiveTeacher(this)" href="">
+                                                            <em class="icon ni ni-archive"></em><span>Delete</span>
                                                         </a>
                                                     </form>
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                 </tbody>
                             </table>
@@ -151,4 +150,6 @@
             <!-- End Card -->
         </div>
         <!-- End Table Section -->
-    @endsection
+    <?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\OSPanel\domains\jiu-api.loc\resources\views/role/show.blade.php ENDPATH**/ ?>

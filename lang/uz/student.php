@@ -17,14 +17,21 @@ return [
     'show_contactinformation_district' => 'Tuman',
     'show_departmentinformation' => 'Bo\'limlar haqida ma\'lumot',
     'show_departmentinformation_name' => 'Bo\'lim nomi',
+    'show_qualification' => 'Malasi',
     'show_action_title' => 'Talaba harakati',
     'show_action_action' => 'Harakat',
     'show_action_desc' => 'Tavsif',
     'show_action_submit' => 'Yuborish',
+    'show_status' => 'Joriy holat',
+    'show_description' => 'Tavsifi',
 
     'title' => 'Talabalar',
     'name' => 'Ismi',
     'phone' => 'Telefon raqami',
     'total' => 'Umumiy soni',
+
+    // Student
+    'show_examdate_title' => 'Imtihon',
+    'show_examdate_day' => 'Imtixon kuni',
 
 ];

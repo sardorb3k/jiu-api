@@ -6,13 +6,12 @@ use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Enrollments extends Model
+class EnrollmentExamday extends Model
 {
     use HasFactory, HasUlids;
-    protected $table = 'enrollments';
+    protected $table = 'enrollment_examday';
     protected $fillable = [
         'user_id',
-        'department_id',
-        'qualification',
+        'day_id',
     ];
 }

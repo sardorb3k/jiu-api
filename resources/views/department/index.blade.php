@@ -142,7 +142,7 @@
                                                         @method('DELETE')
                                                         <input type="hidden" name="id" value="{{ $item->id }}">
                                                         <button type="submit"
-                                                            class="inline-flex justify-center items-center text-center  border border-transparent text-sm lg:text-base text-block font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition dark:focus:ring-offset-gray-800" onclick="archiveFunction(this)">
+                                                            class="inline-flex justify-center items-center text-center  border border-transparent text-sm lg:text-base text-block font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition dark:focus:ring-offset-gray-800 dark:text-white" onclick="archiveFunction(this)">
                                                             <em class="icon ni ni-archive"></em><span>Delete</span>
                                                         </button>
                                                     </form>

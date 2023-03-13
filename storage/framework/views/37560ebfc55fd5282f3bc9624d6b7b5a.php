@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" className="h-full dark">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>" className="h-full dark">
 
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <meta name="description"
         content="Japanese International University (JIU) - Yapon standartlariga asoslangan xalqaro universitet. Qo'ng'iroq qiling, to'liq ma'lumot oling: +998 (71) 203-02-20" />
     <meta name="keywords"
@@ -18,23 +18,24 @@
     <meta property="og:type" content="website" />
     <link rel="canonical" href="jiuuni.uz">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('favicon.ico') }}">
-    {{-- @vite('resources/css/app.css') --}}
+    <link rel="icon" type="image/png" href="<?php echo e(asset('favicon.ico')); ?>">
+    
 
-    <link rel="stylesheet" type="text/css" href="/build/assets/app-7e3a603b.css">
-    <script src="/build/assets/app-a841390a.js"></script>
+    <link rel="stylesheet" type="text/css" href="/build/assets/app-28bce905.css">
+    <script src="/build/assets/app-03c6c85b.js"></script>
     <!-- Title -->
-    <title>@yield('title')</title>
+    <title><?php echo $__env->yieldContent('title'); ?></title>
 </head>
 
 <body class="items-center bg-white-100  dark:bg-slate-900 ">
 
-    @yield('content')
-    {{-- @vite('resources/js/app.js') --}}
+    <?php echo $__env->yieldContent('content'); ?>
+    
 
-    <script src="/build/assets/app-a841390a.js"></script>
+    <script src="/build/assets/app-03c6c85b.js"></script>
     <script src="/build/assets/preline-709aecb3.js"></script>
 
 </body>
 
 </html>
+<?php /**PATH C:\OSPanel\domains\jiu-api.loc\resources\views/layouts/ghost.blade.php ENDPATH**/ ?>
