@@ -62,7 +62,7 @@
 
                                         class="py-3 px-4 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
                                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                            <option value="<?php echo e($item->id); ?>" <?php echo e($enrollment->department_id == $item->id ?? 'selected'); ?>><?php echo e($item->name); ?></option>
+                                            <option value="<?php echo e($item->id); ?>" <?php echo e($enrollment->department_id=null == $item->id ? 'selected': ''); ?>><?php echo e($item->name); ?></option>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
 
