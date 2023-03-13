@@ -19,14 +19,15 @@
     <link rel="canonical" href="jiuuni.uz">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="<?php echo e(asset('favicon.ico')); ?>">
-    <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <script type="text/javascript" src="<?php echo e(asset('js/jquery-3.5.1.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/jquery.zoom.min.js')); ?>"></script>
 
-    
+    <link rel="stylesheet" type="text/css"
+            href="/build/assets/app-7e3a603b.css">
     <!-- Title -->
     <title><?php echo $__env->yieldContent('title'); ?></title>
 </head>
@@ -90,13 +91,14 @@
 <?php $component = $__componentOriginal99051027c5120c83a2f9a5ae7c4c3cfa; ?>
 <?php unset($__componentOriginal99051027c5120c83a2f9a5ae7c4c3cfa); ?>
 <?php endif; ?>
-    <?php echo app('Illuminate\Foundation\Vite')('resources/js/app.js'); ?>
+    
     <script type="text/javascript" src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/jquery-3.5.1.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/jquery.zoom.min.js')); ?>"></script>
     <script src="<?php echo e(asset('js/jquery.inputmask.min.js')); ?>"></script>
     <script src="<?php echo e(asset('js/zoom.js')); ?>"></script>
-    
+    <script src="/build/assets/app-a841390a.js"></script>
+    <script src="/build/assets/preline-a841390a.js"></script>
 
 </body>
 
